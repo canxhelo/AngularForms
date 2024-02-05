@@ -91,7 +91,7 @@ import { OnlyOneErrorPipe } from './pipes/only-one-error.pipe';
         MatStepperModule,
         MatProgressBarModule,
         FormsModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule
     ],
     providers: [
         CoursesService
