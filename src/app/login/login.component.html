@@ -2,26 +2,35 @@
   <mat-card-title>Login</mat-card-title>
   <mat-card-content>
 
-    <form class="login-form data-form">
+    <form class="login-form data-form" #loginForm="ngForm">
 
       <mat-form-field>
 
-        <input matInput type="email" name="email"
-               placeholder="Email">
+        <input matInput type="email" name="email" placeholder="Email" ngModel #email="ngModel" required email>
+        <mat-error *ngIf="email.errors?.required">Email is mandatory</mat-error>
+        <mat-error *ngIf="!email.valid">Email format is incorrect</mat-error>
 
       </mat-form-field>
 
       <mat-form-field>
 
-        <input matInput type="password" placeholder="Password">
-
+        <input matInput type="password" #password="ngModel" name="password" placeholder="Password" ngModel required
+          passwordStrength minlength="6">
+        <mat-error *ngIf="password.errors?.required">Password is mandatory</mat-error>
       </mat-form-field>
 
-      <button mat-raised-button color="primary">
+      <ng-container *ngIf="password.errors | onlyOneError:['minlength','passwordStrength'] as error">
+        <div class="field-message" *ngIf="error.minlength">Mimimum length is 6 characters</div>
+        <div class="field-message" *ngIf="error.passwordStrength">Password format is incorrect</div>
+      </ng-container>
+
+
+      <button mat-raised-button color="primary" (click)="login(loginForm,password)" [disabled]="!loginForm.valid">
         Login
       </button>
-
     </form>
+
+
 
   </mat-card-content>
 </mat-card>
