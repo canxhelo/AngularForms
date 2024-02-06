@@ -1,0 +1,41 @@
+<div [formGroup]="form">
+    <mat-form-field>
+        <input matInput placeholder="Course Title" formControlName="title" #title>
+        <mat-hint align="end">
+            {{title.value.length}}/60
+        </mat-hint>
+        <mat-error *ngIf="courseTitle.errors?.titleExist">
+            This title has already been in use
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Select category" formControlName="category">
+            <ng-container *ngFor="let categoty of (courseCategoires$|async)$">
+                <mat-option [value]="categoty.code">{{categoty.description}}</mat-option>
+
+            </ng-container>
+        </mat-select>
+
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <input matInput [matDatepicker]="releaseDatePicer" placeholder="Release date" formControlName="releaseDate">
+        <mat-datepicker-toggle [for]="releaseDatePicer" matTextSuffix></mat-datepicker-toggle>
+        <mat-datepicker #releaseDatePicer>
+        </mat-datepicker>
+
+    </mat-form-field>
+
+    <mat-checkbox color='primary' formControlName="downloadAllowed"> Download Course</mat-checkbox>
+
+    <mat-form-field appearance="outline">
+        <textarea matInput placeholder="Description" formControlName="longDescription"></textarea>
+    </mat-form-field>
+
+
+    <div> {{this.form.value.releaseDate|date}}</div>
+
+
+</div>
