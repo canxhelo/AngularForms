@@ -25,7 +25,7 @@ import * as e from 'express';
     {
       provide:NG_VALIDATORS,
       multi:true,
-      useExisting:FileUploadComponent
+      useExisting:FileUploadComponent 
     }
   ]
 })

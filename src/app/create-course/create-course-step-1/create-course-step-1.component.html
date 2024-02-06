@@ -1,7 +1,5 @@
 
 <div [formGroup]="form">
-<address-form legend='Address' formControlName="adress"></address-form>
-
     <mat-form-field>
         <input matInput placeholder="Course Title" formControlName="title" #title>
         <mat-hint align="end">
@@ -36,9 +34,6 @@
     <mat-form-field appearance="outline">
         <textarea matInput placeholder="Description" formControlName="longDescription"></textarea>
     </mat-form-field>
-
-
-    <div> {{this.form.value.releaseDate|date}}</div>
 
 
 </div>
