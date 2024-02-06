@@ -15,10 +15,10 @@ export class CreateCourseStep2Component implements OnInit {
     price:[null,[Validators.required,Validators.min(1),Validators.max(9999)]],
     promoStartAt:[null],
     promoEndAt:[null],
+    thumbnail:[null],
   },
   {
     validators:[createPromoRangeValidator()],
-    updateOn:'blur'
   })
 
    constructor(private fb:FormBuilder){}

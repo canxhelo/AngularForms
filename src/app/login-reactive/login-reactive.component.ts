@@ -31,7 +31,7 @@ export class LoginReactiveComponent implements OnInit {
   constructor(
     private fb:FormBuilder,
     // or another case for nonNullable form controlls
-    // fb: NonNullableFormBuilder
+    // fb: NOn
   ) 
   {
 
