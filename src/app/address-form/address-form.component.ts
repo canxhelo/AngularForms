@@ -21,7 +21,7 @@ import {noop, Subscription} from 'rxjs';
       useExisting:AddressFormComponent,
     },
     {
-      provide:Validators,
+      provide:NG_VALIDATORS,
       multi:true,
       useExisting:AddressFormComponent
     }
